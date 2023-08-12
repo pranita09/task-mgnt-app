@@ -36,8 +36,40 @@ export const TasksProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // console.log(state.tasks);
+  // console.log(
+  //   state.tasks.reduce(
+  //     (acc, curr) =>
+  //       acc.includes(curr.priority) ? acc : [...acc, curr.priority],
+  //     []
+  //   )
+  // );
+  // console.log(
+  //   state.tasks.reduce(
+  //     (acc, curr) => (acc.includes(curr.status) ? acc : [...acc, curr.status]),
+  //     []
+  //   )
+  // );
+
+  const readyTasks = state.tasks.filter(({ status }) => status === "Ready");
+  const inProgressTasks = state.tasks.filter(
+    ({ status }) => status === "In Progress"
+  );
+  const testingTasks = state.tasks.filter(({ status }) => status === "Testing");
+  const doneTasks = state.tasks.filter(({ status }) => status === "Done");
+
   return (
-    <TasksContext.Provider value={{ state, dispatch, isLoading }}>
+    <TasksContext.Provider
+      value={{
+        state,
+        dispatch,
+        isLoading,
+        readyTasks,
+        inProgressTasks,
+        testingTasks,
+        doneTasks,
+      }}
+    >
       {children}
     </TasksContext.Provider>
   );
