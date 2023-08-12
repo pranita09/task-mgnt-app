@@ -3,3 +3,89 @@
   margin: 0;
   padding: 0;
 }
+
+.nav-left {
+  grid-area: logo;
+}
+.nav-left .app-name {
+  font-size: 1.8rem;
+  font-family: "Bree Serif", serif;
+}
+.nav-search {
+  grid-area: search;
+  width: 1fr;
+  padding: 0.2rem 0.5rem;
+  margin: 0.8rem 0.5rem;
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-left: 0.5rem;
+  background-color: white;
+  color: black;
+  font-size: 0.9rem;
+}
+.nav-search .search-icon {
+  font-size: 1.3rem;
+  color: black;
+}
+.nav-right {
+  grid-area: icons;
+  justify-self: end;
+}
+.nav-right .nav-icon {
+  padding: 0.5rem;
+  align-self: center;
+  border-radius: 50%;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 0.5rem 1rem;
+  background-color: #473699;
+  color: white;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "logo icons"
+    "search search";
+}
+@media (min-width: 768px) {
+  .navbar {
+    padding: 0.7rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "logo search icons";
+  }
+  .nav-left .app-name {
+    font-size: 2.1rem;
+  }
+  .nav-search {
+    margin-left: 2rem;
+  }
+  .nav-icon:hover {
+    cursor: pointer;
+    background-color: rgb(95, 95, 95);
+  }
+}
+@media (min-width: 1024px) {
+  .nav-left .app-name {
+    font-size: 2.3rem;
+  }
+  .nav-right .nav-icon {
+    padding: 0.7rem;
+  }
+  .nav-icon P {
+    left: 1.5rem;
+  }
+}

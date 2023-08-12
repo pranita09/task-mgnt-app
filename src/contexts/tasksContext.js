@@ -36,8 +36,6 @@ export const TasksProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(state.tasks);
-
   return (
     <TasksContext.Provider value={{ state, dispatch, isLoading }}>
       {children}
