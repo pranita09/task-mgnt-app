@@ -3,6 +3,7 @@ import { useTasks } from "../contexts/tasksContext";
 import { TaskCard } from "./TaskCard";
 import { actionTypes } from "../utils/constants";
 import { toast } from "react-hot-toast";
+import { Loader } from ".";
 
 export const ListTasks = () => {
   const { isLoading } = useTasks();
@@ -10,7 +11,7 @@ export const ListTasks = () => {
   return (
     <div className="p-4">
       {isLoading ? (
-        <p>Loading</p>
+        <Loader />
       ) : (
         <div className="flex items-start justify-center gap-14 flex-wrap">
           {allStatus.map((status, index) => (
@@ -65,7 +66,7 @@ const Section = ({ status }) => {
   return (
     <div
       ref={drop}
-      className={`w-64 rounded-md p-2 ${isOver ? "bg-[#e2e8f0]" : ""}`}
+      className={`w-[17rem] rounded-md p-2 ${isOver ? "bg-[#e2e8f0]" : ""}`}
     >
       <div
         className={`flex items-center font-[500] justify-start gap-2 border-b-4 ${borderColor} h-10 pl-4 rounded uppercase `}

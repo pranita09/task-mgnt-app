@@ -50,7 +50,7 @@ export const TaskCard = ({ task }) => {
   return (
     <div
       ref={drag}
-      className={`w-60 p-3 mt-4 shadow-md rounded-md cursor-grab ${
+      className={`bg-[white] w-64 p-3 mt-4 shadow-md rounded-md cursor-grab ${
         isDragging ? "opacity-25" : "opacity-100"
       }`}
     >
@@ -67,16 +67,16 @@ export const TaskCard = ({ task }) => {
       <p className="text-2xl pt-3 pb-1 font-[500]">{name}</p>
       <p className="py-1.5 text-sm">{summary}</p>
       <p className="text-[0.8rem] py-1.5 flex items-center justify-start gap-2">
-        <MdOutlineAssignmentInd className="text-xl" />{" "}
+        <MdOutlineAssignmentInd className="text-xl" title="Assignee" />{" "}
         <span className="text-sm font-[500]">{assignee}</span>
       </p>
       <div className="flex items-center justify-between py-2">
         <p className="text-[0.8rem] flex items-center justify-start gap-1">
-          <MdOutlineDateRange className="text-xl" />
+          <MdOutlineDateRange className="text-xl" title="Start Date" />
           <span className="text-sm">{formatDate(startDate)}</span>
         </p>
         <p className="text-[0.8rem] flex items-center justify-start gap-1">
-          <GiSandsOfTime className="text-xl" />
+          <GiSandsOfTime className="text-xl" title="End Date" />
           <span className="text-sm">{formatDate(endDate)}</span>
         </p>
       </div>

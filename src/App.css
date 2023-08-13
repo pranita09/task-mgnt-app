@@ -90,3 +90,24 @@
     left: 1.5rem;
   }
 }
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background: lightgray;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #473699;
+  border-radius: 3px;
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: #473699 lightgray;
+    scrollbar-width: thin;
+  }
+}

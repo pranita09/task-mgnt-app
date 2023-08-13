@@ -5,7 +5,9 @@ import { Header, ToastWrapper } from "./components";
 
 function App() {
   return (
-    <div className={`App dark:bg-slate-900 dark:text-white`}>
+    <div
+      className={`App min-h-screen bg-lightGray dark:bg-slate-900 dark:text-white`}
+    >
       <Header />
       <ToastWrapper />
       <Routes>

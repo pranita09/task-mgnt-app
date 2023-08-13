@@ -12,6 +12,7 @@ module.exports = {
       lightRed: "#fecaca",
       blue: "#2563eb",
       lightBlue: "#bfdbfe",
+      lightGray: "#e5e7eb",
     },
     extend: {},
     fontFamily: {
