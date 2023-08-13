@@ -1,8 +1,9 @@
-import { ListTasks } from "../components";
+import { Filters, ListTasks } from "../components";
 
 export const Home = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <Filters />
       <ListTasks />
     </div>
   );

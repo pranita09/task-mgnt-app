@@ -50,7 +50,7 @@ export const TaskCard = ({ task }) => {
   return (
     <div
       ref={drag}
-      className={`bg-[white] w-64 p-3 mt-4 shadow-md rounded-md cursor-grab ${
+      className={`bg-[white] dark:bg-[#1e293b] w-64 p-3 mt-4 shadow-md rounded-md cursor-grab ${
         isDragging ? "opacity-25" : "opacity-100"
       }`}
     >

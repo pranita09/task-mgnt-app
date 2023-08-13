@@ -6,7 +6,7 @@ import { Header, ToastWrapper } from "./components";
 function App() {
   return (
     <div
-      className={`App min-h-screen bg-lightGray dark:bg-slate-900 dark:text-white`}
+      className={`App min-h-screen bg-lightGray dark:bg-blackColor dark:text-[white]`}
     >
       <Header />
       <ToastWrapper />

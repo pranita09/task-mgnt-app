@@ -66,7 +66,9 @@ const Section = ({ status }) => {
   return (
     <div
       ref={drop}
-      className={`w-[17rem] rounded-md p-2 ${isOver ? "bg-[#e2e8f0]" : ""}`}
+      className={`w-[17rem] rounded-md p-2 dark:${
+        isOver ? "bg-[#9ca3af]" : ""
+      }`}
     >
       <div
         className={`flex items-center font-[500] justify-start gap-2 border-b-4 ${borderColor} h-10 pl-4 rounded uppercase `}
