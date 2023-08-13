@@ -64,7 +64,13 @@ export const TaskCard = ({ task }) => {
           {type}
         </span>
       </div>
-      <p className="text-2xl pt-3 pb-1 font-[500]">{name}</p>
+      <p
+        className={`text-2xl pt-3 pb-1 font-[500] ${
+          status === "Done" && "line-through"
+        }`}
+      >
+        {name}
+      </p>
       <p className="py-1.5 text-sm">{summary}</p>
       <p className="text-[0.8rem] py-1.5 flex items-center justify-start gap-2">
         <MdOutlineAssignmentInd className="text-xl" title="Assignee" />{" "}
