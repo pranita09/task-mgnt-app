@@ -15,8 +15,6 @@ export const TaskCard = ({ task }) => {
     }),
   }));
 
-  console.log(task);
-
   const {
     id,
     assignee,

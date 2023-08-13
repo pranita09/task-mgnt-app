@@ -1,9 +1,10 @@
 import { actionTypes } from "../utils/constants";
 
-const { GET_TASKS, DRAG_AND_DROP_TASK } = actionTypes;
+const { GET_TASKS, DRAG_AND_DROP_TASK, SET_SEARCH_INPUT } = actionTypes;
 
 export const initialState = {
   tasks: [],
+  searchInput: "",
 };
 
 export const tasksReducer = (state, { type, payload }) => {
@@ -17,6 +18,8 @@ export const tasksReducer = (state, { type, payload }) => {
           task.id === payload.id ? { ...task, status: payload.status } : task
         ),
       };
+    case SET_SEARCH_INPUT:
+      return { ...state, searchInput: payload };
     default:
       return state;
   }

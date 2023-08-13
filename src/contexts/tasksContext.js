@@ -36,27 +36,20 @@ export const TasksProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // console.log(state.tasks);
-  // console.log(
-  //   state.tasks.reduce(
-  //     (acc, curr) =>
-  //       acc.includes(curr.priority) ? acc : [...acc, curr.priority],
-  //     []
-  //   )
-  // );
-  // console.log(
-  //   state.tasks.reduce(
-  //     (acc, curr) => (acc.includes(curr.status) ? acc : [...acc, curr.status]),
-  //     []
-  //   )
-  // );
+  const filteredTasks = state.searchInput
+    ? state.tasks.filter((task) =>
+        task.name.toLowerCase().includes(state.searchInput.toLowerCase())
+      )
+    : state.tasks;
 
-  const readyTasks = state.tasks.filter(({ status }) => status === "Ready");
-  const inProgressTasks = state.tasks.filter(
+  const readyTasks = filteredTasks.filter(({ status }) => status === "Ready");
+  const inProgressTasks = filteredTasks.filter(
     ({ status }) => status === "In Progress"
   );
-  const testingTasks = state.tasks.filter(({ status }) => status === "Testing");
-  const doneTasks = state.tasks.filter(({ status }) => status === "Done");
+  const testingTasks = filteredTasks.filter(
+    ({ status }) => status === "Testing"
+  );
+  const doneTasks = filteredTasks.filter(({ status }) => status === "Done");
 
   return (
     <TasksContext.Provider

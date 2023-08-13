@@ -15,7 +15,6 @@ export const formatDate = (inputDate) => {
   ];
 
   const parts = inputDate.split("-");
-  const year = parts[0];
   const month = parseInt(parts[1], 10);
   const day = parseInt(parts[2], 10);
 

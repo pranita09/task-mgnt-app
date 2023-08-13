@@ -73,8 +73,11 @@ const Section = ({ status }) => {
         <span className="text-lg">{text}</span>
         <span className="text-[0.8rem]">({tasksToMap.length})</span>
       </div>
-      {tasksToMap.length > 0 &&
-        tasksToMap?.map((task) => <TaskCard key={task.id} task={task} />)}
+      {tasksToMap.length > 0 ? (
+        tasksToMap?.map((task) => <TaskCard key={task.id} task={task} />)
+      ) : (
+        <p className="py-4 text-center">No tasks found!</p>
+      )}
     </div>
   );
 };
