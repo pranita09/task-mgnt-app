@@ -1,5 +1,8 @@
+import { useDrop } from "react-dnd";
 import { useTasks } from "../contexts/tasksContext";
 import { TaskCard } from "./TaskCard";
+import { actionTypes } from "../utils/constants";
+import { toast } from "react-hot-toast";
 
 export const ListTasks = () => {
   const { isLoading } = useTasks();
@@ -9,7 +12,7 @@ export const ListTasks = () => {
       {isLoading ? (
         <p>Loading</p>
       ) : (
-        <div className="flex items-start justify-center gap-16 flex-wrap">
+        <div className="flex items-start justify-center gap-14 flex-wrap">
           {allStatus.map((status, index) => (
             <Section key={index} status={status} />
           ))}
@@ -20,11 +23,23 @@ export const ListTasks = () => {
 };
 
 const Section = ({ status }) => {
-  const { readyTasks, inProgressTasks, testingTasks, doneTasks } = useTasks();
+  const { dispatch, readyTasks, inProgressTasks, testingTasks, doneTasks } =
+    useTasks();
 
-  let text;
-  let borderColor;
-  let tasksToMap;
+  const { DRAG_AND_DROP_TASK } = actionTypes;
+
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: "task",
+    drop: (item) => {
+      dispatch({ type: DRAG_AND_DROP_TASK, payload: { id: item.id, status } });
+      toast.success("Task status changed successfully!");
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
+
+  let text, borderColor, tasksToMap;
 
   if (status === "Ready") {
     text = "Ready";
@@ -48,11 +63,14 @@ const Section = ({ status }) => {
   }
 
   return (
-    <div className="w-64">
+    <div
+      ref={drop}
+      className={`w-64 rounded-md p-2 ${isOver ? "bg-[#e2e8f0]" : ""}`}
+    >
       <div
-        className={`flex items-center justify-start gap-2 border-b-4 ${borderColor} h-12 pl-4 rounded uppercase `}
+        className={`flex items-center font-[500] justify-start gap-2 border-b-4 ${borderColor} h-10 pl-4 rounded uppercase `}
       >
-        <span>{text}</span>
+        <span className="text-lg">{text}</span>
         <span className="text-[0.8rem]">({tasksToMap.length})</span>
       </div>
       {tasksToMap.length > 0 &&
