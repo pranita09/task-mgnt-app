@@ -1,7 +1,13 @@
 import { FaSun, FaMoon } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
-import { MdOutlineAssignmentInd, MdOutlineDateRange } from "react-icons/md";
 import { GiSandsOfTime } from "react-icons/gi";
+import { BiBarChartSquare } from "react-icons/bi";
+import {
+  MdOutlineAssignmentInd,
+  MdOutlineDateRange,
+  MdFilterList,
+  MdOutlineClose,
+} from "react-icons/md";
 
 export {
   FaSun,
@@ -10,4 +16,7 @@ export {
   MdOutlineAssignmentInd,
   MdOutlineDateRange,
   GiSandsOfTime,
+  MdFilterList,
+  BiBarChartSquare,
+  MdOutlineClose,
 };

@@ -36,11 +36,51 @@ export const TasksProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const filteredTasks = state.searchInput
+  const filteredTasksBySearch = state.searchInput
     ? state.tasks.filter((task) =>
         task.name.toLowerCase().includes(state.searchInput.toLowerCase())
       )
     : state.tasks;
+
+  const filteredTasksByDate = state.dateRadioInput
+    ? filteredTasksBySearch.sort((a, b) => {
+        if (state.dateRadioInput === "asc-startDate") {
+          return new Date(a.startDate) - new Date(b.startDate);
+        }
+        if (state.dateRadioInput === "dsc-startDate") {
+          return new Date(b.startDate) - new Date(a.startDate);
+        }
+        if (state.dateRadioInput === "asc-endDate") {
+          return new Date(a.endDate) - new Date(b.endDate);
+        }
+        if (state.dateRadioInput === "dsc-endDate") {
+          return new Date(b.endDate) - new Date(a.endDate);
+        }
+      })
+    : filteredTasksBySearch;
+
+  const filteredTasksByAssignee =
+    state.assigneeCheckboxInput.length > 0
+      ? filteredTasksByDate.filter((task) =>
+          state.assigneeCheckboxInput.some(
+            (assignee) => task.assignee === assignee
+          )
+        )
+      : filteredTasksByDate;
+
+  const filteredTasks = state.priorityRadioInput
+    ? filteredTasksByAssignee.filter((task) => {
+        if (state.priorityRadioInput === "High") {
+          return task.priority === "High";
+        }
+        if (state.priorityRadioInput === "Medium") {
+          return task.priority === "Medium";
+        }
+        if (state.priorityRadioInput === "Low") {
+          return task.priority === "Low";
+        }
+      })
+    : filteredTasksByAssignee;
 
   const readyTasks = filteredTasks.filter(({ status }) => status === "Ready");
   const inProgressTasks = filteredTasks.filter(
@@ -61,6 +101,7 @@ export const TasksProvider = ({ children }) => {
         inProgressTasks,
         testingTasks,
         doneTasks,
+        filteredTasks,
       }}
     >
       {children}
