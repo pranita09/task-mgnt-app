@@ -1,6 +1,6 @@
 import { MdFilterList, BiBarChartSquare, MdOutlineClose } from "../utils/icons";
 import { useState } from "react";
-import { FilterTypes } from "./FilterTypes";
+import { FilterTypes } from ".";
 import { useTasks } from "../contexts/tasksContext";
 import { actionTypes } from "../utils/constants";
 

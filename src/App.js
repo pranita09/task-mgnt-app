@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Home, TaskMetrics } from "./pages";
-import { Header, ToastWrapper } from "./components";
+import { Header, ScrollToTop, ToastWrapper } from "./components";
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/task-metrics" ekement={<TaskMetrics />} />
       </Routes>
+      <ScrollToTop />
     </div>
   );
 }

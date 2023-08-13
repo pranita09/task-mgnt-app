@@ -7,6 +7,7 @@ import {
   MdOutlineDateRange,
   MdFilterList,
   MdOutlineClose,
+  MdKeyboardControlKey,
 } from "react-icons/md";
 
 export {
@@ -19,4 +20,5 @@ export {
   MdFilterList,
   BiBarChartSquare,
   MdOutlineClose,
+  MdKeyboardControlKey,
 };

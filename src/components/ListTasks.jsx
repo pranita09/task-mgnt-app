@@ -1,9 +1,7 @@
 import { useDrop } from "react-dnd";
 import { useTasks } from "../contexts/tasksContext";
-import { TaskCard } from "./TaskCard";
 import { actionTypes } from "../utils/constants";
-import { toast } from "react-hot-toast";
-import { Loader } from ".";
+import { Loader, TaskCard } from ".";
 
 export const ListTasks = () => {
   const { isLoading } = useTasks();
@@ -33,7 +31,6 @@ const Section = ({ status }) => {
     accept: "task",
     drop: (item) => {
       dispatch({ type: DRAG_AND_DROP_TASK, payload: { id: item.id, status } });
-      toast.success("Task status changed successfully!");
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
