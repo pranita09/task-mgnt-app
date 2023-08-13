@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useTheme } from "../contexts/themeContext";
 import { FaMoon, FaSun, FiSearch } from "../utils/icons";
 import { useTasks } from "../contexts/tasksContext";
 import { actionTypes } from "../utils/constants";
 
 export const Header = () => {
+  const navigate = useNavigate();
   const { isDarkTheme, setIsDarkTheme } = useTheme();
   const { state, dispatch } = useTasks();
 
@@ -23,9 +24,10 @@ export const Header = () => {
           type="text"
           value={state.searchInput}
           placeholder="Search task by task name..."
-          onChange={(e) =>
-            dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value })
-          }
+          onChange={(e) => {
+            navigate("/");
+            dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
+          }}
         />
       </div>
       <div className="nav-right">

@@ -12,7 +12,7 @@ function App() {
       <ToastWrapper />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/task-metrics" ekement={<TaskMetrics />} />
+        <Route path="/task-metrics" element={<TaskMetrics />} />
       </Routes>
       <ScrollToTop />
     </div>

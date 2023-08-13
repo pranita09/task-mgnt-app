@@ -8,6 +8,7 @@ import {
   MdFilterList,
   MdOutlineClose,
   MdKeyboardControlKey,
+  MdOutlineDashboard,
 } from "react-icons/md";
 
 export {
@@ -21,4 +22,5 @@ export {
   BiBarChartSquare,
   MdOutlineClose,
   MdKeyboardControlKey,
+  MdOutlineDashboard,
 };
