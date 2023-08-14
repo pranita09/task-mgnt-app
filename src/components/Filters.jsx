@@ -33,7 +33,7 @@ export const Filters = ({ title }) => {
         {title === "Board" && (
           <button
             id="filters-button"
-            className="py-1 px-3 flex items-center justify-center gap-2 bg-lightGray bg-opacity-30 rounded"
+            className="py-1 px-3 flex items-center justify-center gap-2 bg-lightGray bg-opacity-30 rounded hover:opacity-80"
             onClick={() => setShowFilters((prev) => !prev)}
           >
             <MdFilterList className="text-xl" />
@@ -78,7 +78,7 @@ export const Filters = ({ title }) => {
         )}
         {title === "Board" ? (
           <button
-            className="py-1 px-3 flex items-center justify-center gap-2 bg-[#6d28d9] rounded"
+            className="py-1 px-3 flex items-center justify-center gap-2 bg-[#6d28d9] rounded hover:opacity-80"
             onClick={() => navigate("/task-metrics")}
           >
             <BiBarChartSquare className="text-xl" />
@@ -86,7 +86,7 @@ export const Filters = ({ title }) => {
           </button>
         ) : (
           <button
-            className="py-1 px-3 flex items-center justify-center gap-2 bg-[#6d28d9] rounded"
+            className="py-1 px-3 flex items-center justify-center gap-2 bg-[#6d28d9] rounded hover:opacity-80"
             onClick={() => navigate("/")}
           >
             <MdOutlineDashboard className="text-xl" />

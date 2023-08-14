@@ -4,6 +4,7 @@ import {
   MdOutlineAssignmentInd,
   MdOutlineDateRange,
   GiSandsOfTime,
+  LuTimerReset,
 } from "../utils/icons";
 
 export const TaskCard = ({ task }) => {
@@ -16,7 +17,6 @@ export const TaskCard = ({ task }) => {
   }));
 
   const {
-    id,
     assignee,
     name,
     priority,
@@ -25,7 +25,7 @@ export const TaskCard = ({ task }) => {
     status,
     summary,
     type,
-    effortsSpent,
+    effortSpent,
   } = task;
 
   let typeBgColor, typeTextColor, typeBorderColor;
@@ -75,6 +75,10 @@ export const TaskCard = ({ task }) => {
       <p className="text-[0.8rem] py-1.5 flex items-center justify-start gap-2">
         <MdOutlineAssignmentInd className="text-xl" title="Assignee" />{" "}
         <span className="text-sm font-[500]">{assignee}</span>
+      </p>
+      <p className="text-[0.8rem] py-1.5 flex items-center justify-start gap-2">
+        <LuTimerReset className="text-xl" title="Effort Hours" />{" "}
+        <span className="text-sm">{effortSpent} Hours needed</span>
       </p>
       <div className="flex items-center justify-between py-2">
         <p className="text-[0.8rem] flex items-center justify-start gap-1">

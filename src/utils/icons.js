@@ -2,6 +2,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { GiSandsOfTime } from "react-icons/gi";
 import { BiBarChartSquare } from "react-icons/bi";
+import { LuTimerReset } from "react-icons/lu";
 import {
   MdOutlineAssignmentInd,
   MdOutlineDateRange,
@@ -23,4 +24,5 @@ export {
   MdOutlineClose,
   MdKeyboardControlKey,
   MdOutlineDashboard,
+  LuTimerReset,
 };
