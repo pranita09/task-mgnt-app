@@ -1,13 +1,22 @@
-import { DoughnutChart } from "../charts";
-import { Filters } from "../components";
+import { BarChart, BubbleChart, DoughnutChart, PieChart } from "../charts";
+import { Filters, Loader } from "../components";
+import { useTasks } from "../contexts/tasksContext";
 
 export const TaskMetrics = () => {
+  const { isLoading } = useTasks();
   return (
     <div>
       <Filters title={"Metrics"} />
-      <div className="flex items-center justify-center gap-6 flex-wrap p-4">
-        <DoughnutChart />
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="flex items-center justify-center gap-8 flex-wrap p-6">
+          <BarChart />
+          <BubbleChart />
+          <DoughnutChart />
+          <PieChart />
+        </div>
+      )}
     </div>
   );
 };

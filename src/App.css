@@ -27,14 +27,14 @@
   border: none;
   outline: none;
   margin-left: 0.5rem;
-  background-color: white;
+  background-color: transparent;
   color: black;
   font-size: 0.9rem;
   padding: 0.2rem 0;
 }
+
 .nav-search .search-icon {
   font-size: 1.3rem;
-  color: black;
 }
 .nav-right {
   grid-area: icons;
@@ -90,4 +90,3 @@
     left: 1.5rem;
   } */
 }
-

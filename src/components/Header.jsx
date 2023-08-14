@@ -18,12 +18,13 @@ export const Header = () => {
           <span className="app-name">Organizely</span>
         </div>
       </NavLink>
-      <div className="nav-search">
-        <FiSearch className="search-icon" />
+      <div className="nav-search dark:bg-[#1e293b] dark:bg-opacity-60">
+        <FiSearch className="search-icon text-[black] dark:text-[whitesmoke]" />
         <input
           type="text"
           value={state.searchInput}
           placeholder="Search task by task name..."
+          className="dark:text-[whitesmoke]"
           onChange={(e) => {
             navigate("/");
             dispatch({ type: SET_SEARCH_INPUT, payload: e.target.value });
