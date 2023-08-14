@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Organizely
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Organizely](https://organizely-task-mgnt-app.netlify.app/) - Task Manageent Web Application (A Kanban Project).
 
-## Available Scripts
+## How to install and run locally?
 
-In the project directory, you can run:
+```
+$ git clone https://github.com/pranita09/task-mgnt-app.git
+$ cd task-mgnt-app
+$ npm install
+$ npm start
+```
 
-### `npm start`
+## Features -
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Task Board Layout:** A task board layout with four columns representing the stages: Ready, In Progress, Testing, and Done.
+2. **Drag-and-Drop:** The ability to drag and drop tasks from one group to another. Tasks are visually draggable and snap into the appropriate stage when dropped.
+3. **Task Cards:** A task card within its respective group. The task card displays the task's name, assignee, priority, and any other relevant information.
+4. **Task Metrics:** Visual metrics for each group, showing the total number of tasks in that stage, along with the breakdown of tasks based on their priorities (Urgent, High, Medium, Low).
+5. Search functionality, which will search by task name from any group (Ready/In progress/Testing/Done)
+6. Filters like filter by Start/End dates, filter by assignee, filter by severity of the task
+7. Unique badges to each task based on severity (High/Medium/Low)
+8. Light and dark mode
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology Used -
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React JS
+- React Context API + useReducer
+- React Router v6
+- Tailwind CSS
+- React-dnd
+- Chart.js
+- React Icons
