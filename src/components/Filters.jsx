@@ -1,14 +1,14 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTasks } from "../contexts/tasksContext";
+import { FilterTypes } from ".";
+import { actionTypes } from "../utils/constants";
 import {
   MdFilterList,
   BiBarChartSquare,
   MdOutlineClose,
   MdOutlineDashboard,
 } from "../utils/icons";
-import { useState } from "react";
-import { FilterTypes } from ".";
-import { useTasks } from "../contexts/tasksContext";
-import { actionTypes } from "../utils/constants";
-import { useNavigate } from "react-router-dom";
 
 export const Filters = ({ title }) => {
   const navigate = useNavigate();

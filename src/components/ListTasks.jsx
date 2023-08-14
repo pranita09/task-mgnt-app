@@ -1,7 +1,7 @@
 import { useDrop } from "react-dnd";
 import { useTasks } from "../contexts/tasksContext";
-import { actionTypes } from "../utils/constants";
 import { Loader, TaskCard } from ".";
+import { actionTypes } from "../utils/constants";
 
 export const ListTasks = () => {
   const { isLoading } = useTasks();

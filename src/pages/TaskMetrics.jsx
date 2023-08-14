@@ -1,6 +1,6 @@
-import { BarChart, BubbleChart, DoughnutChart, PieChart } from "../charts";
-import { Filters, Loader } from "../components";
 import { useTasks } from "../contexts/tasksContext";
+import { Filters, Loader } from "../components";
+import { BarChart, BubbleChart, DoughnutChart, PieChart } from "../charts";
 
 export const TaskMetrics = () => {
   const { isLoading } = useTasks();

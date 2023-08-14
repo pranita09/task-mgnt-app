@@ -1,8 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useTheme } from "../contexts/themeContext";
-import { FaMoon, FaSun, FiSearch } from "../utils/icons";
 import { useTasks } from "../contexts/tasksContext";
 import { actionTypes } from "../utils/constants";
+import { FaMoon, FaSun, FiSearch } from "../utils/icons";
 
 export const Header = () => {
   const navigate = useNavigate();

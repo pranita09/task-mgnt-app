@@ -1,11 +1,11 @@
-import { Bubble } from "react-chartjs-2";
 import {
-  Chart as ChartJS,
-  LinearScale,
-  PointElement,
-  Tooltip,
-  Legend,
+    Chart as ChartJS,
+    LinearScale,
+    PointElement,
+    Tooltip,
+    Legend,
 } from "chart.js";
+import { Bubble } from "react-chartjs-2";
 import { useTasks } from "../contexts/tasksContext";
 
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
