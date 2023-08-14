@@ -51,7 +51,7 @@ export const TaskCard = ({ task }) => {
       ref={drag}
       className={`bg-[white] dark:bg-[#1e293b] w-64 p-3 mt-4 shadow-md rounded-md cursor-grab ${
         isDragging ? "opacity-25" : "opacity-100"
-      }`}
+      } hover:scale-[1.035] transition-transform`}
     >
       <div className="w-full text-[0.75rem] flex justify-between gap-4">
         <span
