@@ -23,7 +23,7 @@ export const FilterTypes = () => {
 
   return (
     <div className="py-2">
-      <h2 className="pb-1 pt-1 border-b-2">Filter by Date</h2>
+      <h2 className="pb-1 pt-1 border-b-2">Sort by Date</h2>
       <div className="flex flex-col items-start py-2 pb-3 gap-1 text-sm">
         <label className="flex items-center gap-2 cursor-pointer">
           <input
