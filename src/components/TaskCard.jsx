@@ -28,7 +28,6 @@ export const TaskCard = ({ task }) => {
     effortSpent,
   } = task;
 
-  let typeBgColor, typeTextColor, typeBorderColor;
   let priorityBgColor, priorityTextColor, priorityBorderColor;
 
   if (priority === "High") {
@@ -54,7 +53,7 @@ export const TaskCard = ({ task }) => {
         isDragging ? "opacity-25" : "opacity-100"
       }`}
     >
-      <div className="text-[0.75rem] flex gap-4">
+      <div className="w-full text-[0.75rem] flex justify-between gap-4">
         <span
           className={`${priorityBgColor} ${priorityTextColor} border ${priorityBorderColor} px-1.5 py-[0.01rem] rounded`}
         >

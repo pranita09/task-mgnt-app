@@ -63,9 +63,9 @@ const Section = ({ status }) => {
   return (
     <div
       ref={drop}
-      className={`w-[17rem] rounded-md p-2 dark:${
-        isOver ? "bg-[#9ca3af]" : ""
-      }`}
+      className={`w-[17rem] rounded-md p-2 ${
+        isOver ? "bg-[#d1d5db]" : ""
+      } dark:${isOver ? "bg-[#334155]" : ""}`}
     >
       <div
         className={`flex items-center font-[500] justify-start gap-2 border-b-4 ${borderColor} h-10 pl-4 rounded uppercase `}
@@ -76,8 +76,9 @@ const Section = ({ status }) => {
       {tasksToMap.length > 0 ? (
         tasksToMap?.map((task) => <TaskCard key={task.id} task={task} />)
       ) : (
-        <p className="py-4 text-center">No tasks found!</p>
+        <p className="py-4 pl-4">No tasks found!</p>
       )}
+      <div className="h-40 w-64"></div>
     </div>
   );
 };

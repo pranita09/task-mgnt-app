@@ -29,7 +29,7 @@ export const Filters = ({ title }) => {
   return (
     <div className="relative w-full bg-[#624a95] text-[white] py-3 px-8 xl:px-10 flex items-center justify-between gap-2">
       <h1 className="sm:text-xl font-[500] lg:pl-6">Tasks {title}</h1>
-      <div className="flex items-center justify-center gap-4">
+      <div className="flex items-center justify-center gap-2 sm:gap-4">
         {title === "Board" && (
           <button
             id="filters-button"
@@ -37,14 +37,14 @@ export const Filters = ({ title }) => {
             onClick={() => setShowFilters((prev) => !prev)}
           >
             <MdFilterList className="text-xl" />
-            <span>
-              Filters{" "}
+            <div className="flex gap-2 justify-center items-center">
+              <span className="hidden sm:block">Filters</span>
               {totalFiltersApplied > 0 && (
-                <span className="text-[0.7rem] py-0.5 px-1.5 w-4 h-4 ml-1 bg-lightGray text-[black] rounded-full">
+                <span className="text-[0.6rem] flex items-center justify-center w-4 h-4 bg-lightGray text-[black] rounded-full">
                   {totalFiltersApplied}
                 </span>
               )}
-            </span>
+            </div>
             {totalFiltersApplied > 0 && (
               <span
                 className="hover:bg-lightGray hover:text-[black]"
@@ -60,7 +60,7 @@ export const Filters = ({ title }) => {
           </button>
         )}
         {showFilters && (
-          <div className="w-[18.5rem] h-[32rem] absolute top-[3.8rem] right-4 sm:top-12 bg-[whitesmoke] text-[black] dark:bg-[#334155] dark:text-[white] rounded py-3 px-6 overflow-y-scroll">
+          <div className="filters w-[18.5rem] h-[32rem] absolute top-[3.8rem] right-4 sm:top-12 bg-[whitesmoke] text-[black] dark:bg-[#334155] dark:text-[white] rounded py-3 px-6 overflow-y-scroll">
             <div className="flex items-center justify-between py-2">
               <h1 className="text-lg uppercase">Filters</h1>
               <span
@@ -82,7 +82,7 @@ export const Filters = ({ title }) => {
             onClick={() => navigate("/task-metrics")}
           >
             <BiBarChartSquare className="text-xl" />
-            <span>Metrics</span>
+            <span className="hidden sm:block">Metrics</span>
           </button>
         ) : (
           <button
@@ -90,7 +90,7 @@ export const Filters = ({ title }) => {
             onClick={() => navigate("/")}
           >
             <MdOutlineDashboard className="text-xl" />
-            <span>Tasks Board</span>
+            <span className="hidden sm:block">Tasks Board</span>
           </button>
         )}
       </div>
