@@ -60,7 +60,7 @@ export const Filters = ({ title }) => {
           </button>
         )}
         {showFilters && (
-          <div className="filters w-[18.5rem] h-[32rem] absolute top-[3.8rem] right-4 sm:top-12 bg-[whitesmoke] text-[black] dark:bg-[#334155] dark:text-[white] rounded py-3 px-6 overflow-y-scroll">
+          <div className="filters w-[18.5rem] h-[32rem] absolute top-[3.8rem] right-4 sm:top-12 bg-[whitesmoke] text-[black] dark:bg-[#334155] dark:text-[white] rounded py-3 px-6 overflow-y-scroll z-10">
             <div className="flex items-center justify-between py-2">
               <h1 className="text-lg uppercase">Filters</h1>
               <span
