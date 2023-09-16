@@ -2,3 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:wght@400;500&display=swap");
+
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+form input,
+form select {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 2px;
+}
+
+form div {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+form div input,
+form select {
+  min-width: 12rem;
+}
+
+form .action-btns {
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.75rem 0 0 0;
+}
+
+form .action-btns button:hover {
+  transform: scale(1.05);
+}

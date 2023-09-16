@@ -9,6 +9,7 @@ const {
   CLEAR_FILTERS,
   UPDATE_TASK,
   DELETE_TASK,
+  ADD_NEW_TASK,
 } = actionTypes;
 
 export const initialState = {
@@ -40,6 +41,8 @@ export const tasksReducer = (state, { type, payload }) => {
       return { ...state, priorityRadioInput: payload };
     case CLEAR_FILTERS:
       return { ...initialState, tasks: payload };
+    case ADD_NEW_TASK:
+      return { ...state, tasks: [...state.tasks, payload] };
     case UPDATE_TASK:
       return {
         ...state,

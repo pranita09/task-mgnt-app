@@ -1,4 +1,12 @@
-export const API_KEY = "x-tenant: b4349714-47c7-4605-a81c-df509fc7e653";
+export const styles = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+};
 
 export const actionTypes = {
   GET_TASKS: "GET_TASKS",
@@ -9,4 +17,5 @@ export const actionTypes = {
   CLEAR_FILTERS: "CLEAR_FILTERS",
   UPDATE_TASK: "UPDATE_TASK",
   DELETE_TASK: "DELETE_TASK",
+  ADD_NEW_TASK: "ADD_NEW_TASK",
 };

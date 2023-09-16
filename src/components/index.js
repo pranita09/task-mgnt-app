@@ -6,3 +6,4 @@ export { Filters } from "./Filters";
 export { FilterTypes } from "./FilterTypes";
 export { ScrollToTop } from "./ScrollToTop";
 export { ToastWrapper } from "./ToastWrapper";
+export { TaskModal } from "./TaskModal";

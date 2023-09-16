@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTasks } from "../contexts/tasksContext";
-import { FilterTypes } from ".";
+import { FilterTypes, TaskModal } from ".";
 import { actionTypes } from "../utils/constants";
 import {
   MdFilterList,
   BiBarChartSquare,
   MdOutlineClose,
   MdOutlineDashboard,
+  IoMdAddCircleOutline,
 } from "../utils/icons";
+import { Modal } from "@mui/material";
 
 export const Filters = ({ title }) => {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ export const Filters = ({ title }) => {
   } = useTasks();
 
   const [showFilters, setShowFilters] = useState(false);
+  const [showTaskModal, setShowTaskModal] = useState(false);
 
   const { CLEAR_FILTERS } = actionTypes;
 
@@ -30,6 +33,13 @@ export const Filters = ({ title }) => {
     <div className="relative w-full bg-[#624a95] text-[white] py-3 px-8 xl:px-10 flex items-center justify-between gap-2">
       <h1 className="sm:text-xl font-[500] lg:pl-6">Tasks {title}</h1>
       <div className="flex items-center justify-center gap-2 sm:gap-4">
+        <button
+          className="py-1 px-3 flex items-center justify-center gap-2 bg-[#6d28d9] rounded hover:opacity-80"
+          onClick={() => setShowTaskModal(true)}
+        >
+          <IoMdAddCircleOutline className="text-xl" />
+          <span className="hidden sm:block">New Task</span>
+        </button>
         {title === "Board" && (
           <button
             id="filters-button"
@@ -94,6 +104,11 @@ export const Filters = ({ title }) => {
           </button>
         )}
       </div>
+      <Modal open={showTaskModal} onClose={() => setShowTaskModal(false)}>
+        <>
+          <TaskModal setShowTaskModal={setShowTaskModal} />
+        </>
+      </Modal>
     </div>
   );
 };

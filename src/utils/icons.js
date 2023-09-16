@@ -1,6 +1,7 @@
 import { FaSun, FaMoon, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { GiSandsOfTime } from "react-icons/gi";
+import {IoMdAddCircleOutline} from "react-icons/io"
 import { BiBarChartSquare } from "react-icons/bi";
 import { LuTimerReset } from "react-icons/lu";
 import {
@@ -27,4 +28,5 @@ export {
   MdKeyboardControlKey,
   MdOutlineDashboard,
   LuTimerReset,
+  IoMdAddCircleOutline,
 };

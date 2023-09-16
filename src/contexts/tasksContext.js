@@ -16,7 +16,7 @@ export const TasksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { GET_TASKS, UPDATE_TASK, DELETE_TASK } = actionTypes;
+  const { GET_TASKS, UPDATE_TASK, DELETE_TASK, ADD_NEW_TASK } = actionTypes;
 
   const getAllTasks = async () => {
     setIsLoading(true);
@@ -25,6 +25,22 @@ export const TasksProvider = ({ children }) => {
         "https://organizely-nodejs-restapi.onrender.com/tasks"
       );
       dispatch({ type: GET_TASKS, payload: response.data });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const addNewTask = async (taskData) => {
+    setIsLoading(true);
+    try {
+      const result = await axios.post(
+        "https://organizely-nodejs-restapi.onrender.com/tasks",
+        taskData
+      );
+      dispatch({ type: ADD_NEW_TASK, payload: result.data.data });
+      toast.success("New task is added successfully!");
     } catch (error) {
       console.error(error);
     } finally {
@@ -120,6 +136,7 @@ export const TasksProvider = ({ children }) => {
       value={{
         state,
         dispatch,
+        addNewTask,
         updateTask,
         deleteTask,
         isLoading,
