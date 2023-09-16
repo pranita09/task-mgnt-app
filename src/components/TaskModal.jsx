@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { styles } from "../utils/constants";
 import { useTasks } from "../contexts/tasksContext";
+import toast from "react-hot-toast";
 
-export const TaskModal = ({ setShowTaskModal }) => {
-  const { addNewTask } = useTasks();
+export const TaskModal = ({ task, setShowTaskModal }) => {
+  const { addNewTask, updateTask } = useTasks();
   const initialTaskInputs = {
     name: "",
     summary: "",
@@ -14,11 +15,16 @@ export const TaskModal = ({ setShowTaskModal }) => {
     priority: "",
     taskType: "",
   };
-  const [taskInputs, setTaskInputs] = useState(initialTaskInputs);
+  const [taskInputs, setTaskInputs] = useState(task || initialTaskInputs);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    addNewTask({ ...taskInputs, status: "Ready" });
+    if (task) {
+      updateTask(task._id, taskInputs);
+      toast.success("Task is updated successfully!");
+    } else {
+      addNewTask({ ...taskInputs, status: "Ready" });
+    }
     setTaskInputs(initialTaskInputs);
     setShowTaskModal(false);
   };
@@ -28,7 +34,9 @@ export const TaskModal = ({ setShowTaskModal }) => {
       style={styles}
       className="w-[29rem] p-4 bg-lightGray dark:bg-blackColor dark:text-[white] rounded"
     >
-      <h1 className="text-xl font-[500] text-center py-1">Add New Task</h1>
+      <h1 className="text-xl font-[500] text-center py-1">
+        {task ? "Update the Task" : "Add New Task"}
+      </h1>
       <form
         className="py-5 px-2 flex flex-col gap-3"
         onSubmit={handleFormSubmit}
@@ -151,7 +159,7 @@ export const TaskModal = ({ setShowTaskModal }) => {
             type="submit"
             className="py-1 px-6 rounded border border-[#473699] bg-[#473699] text-[white]"
           >
-            Add
+            {task ? "Save" : "Add"}
           </button>
           <button
             className="py-1 px-6 border rounded"

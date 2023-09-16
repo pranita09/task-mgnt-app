@@ -6,13 +6,15 @@ import {
   useState,
 } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { initialState, tasksReducer } from "../reducers/tasksReducer";
 import { actionTypes } from "../utils/constants";
-import toast from "react-hot-toast";
 
 export const TasksContext = createContext();
 
 export const TasksProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -41,6 +43,7 @@ export const TasksProvider = ({ children }) => {
       );
       dispatch({ type: ADD_NEW_TASK, payload: result.data.data });
       toast.success("New task is added successfully!");
+      navigate("/");
     } catch (error) {
       console.error(error);
     } finally {

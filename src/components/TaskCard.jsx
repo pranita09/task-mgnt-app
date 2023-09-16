@@ -1,4 +1,8 @@
 import { useDrag } from "react-dnd";
+import { useState } from "react";
+import { Modal } from "@mui/material";
+import { useTasks } from "../contexts/tasksContext";
+import { TaskModal } from ".";
 import { formatDate } from "../utils/formatDate";
 import {
   MdOutlineAssignmentInd,
@@ -8,10 +12,11 @@ import {
   FaTrashAlt,
   FaEdit,
 } from "../utils/icons";
-import { useTasks } from "../contexts/tasksContext";
 
 export const TaskCard = ({ task }) => {
-  const { updateTask, deleteTask } = useTasks();
+  const { deleteTask } = useTasks();
+
+  const [showTaskModal, setShowTaskModal] = useState(false);
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
@@ -99,7 +104,10 @@ export const TaskCard = ({ task }) => {
         className="flex items-center justify-between py-3 px-8"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="text-xl text-[#2563eb] hover:text-[#1e40af]">
+        <button
+          className="text-xl text-[#2563eb] hover:text-[#1e40af]"
+          onClick={() => setShowTaskModal(true)}
+        >
           <FaEdit title="Edit Task" />
         </button>
         <button
@@ -109,6 +117,11 @@ export const TaskCard = ({ task }) => {
           <FaTrashAlt title="Delete Task" />
         </button>
       </div>
+      <Modal open={showTaskModal} onClose={() => setShowTaskModal(false)}>
+        <>
+          <TaskModal task={task} setShowTaskModal={setShowTaskModal} />
+        </>
+      </Modal>
     </div>
   );
 };
