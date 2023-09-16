@@ -10,7 +10,7 @@ export const ListTasks = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex items-start justify-center gap-14 flex-wrap">
+        <div className="flex items-start justify-center gap-10 flex-wrap">
           {allStatus.map((status, index) => (
             <Section key={index} status={status} />
           ))}
@@ -21,14 +21,8 @@ export const ListTasks = () => {
 };
 
 const Section = ({ status }) => {
-  const {
-    dispatch,
-    updateTask,
-    readyTasks,
-    inProgressTasks,
-    testingTasks,
-    doneTasks,
-  } = useTasks();
+  const { updateTask, readyTasks, inProgressTasks, testingTasks, doneTasks } =
+    useTasks();
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
@@ -66,7 +60,7 @@ const Section = ({ status }) => {
   return (
     <div
       ref={drop}
-      className={`w-[17rem] rounded-md p-2 ${
+      className={`w-[18rem] rounded-md p-2 ${
         isOver ? "bg-[#d1d5db]" : ""
       } dark:${isOver ? "bg-[#334155]" : ""}`}
     >

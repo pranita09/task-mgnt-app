@@ -5,9 +5,14 @@ import {
   MdOutlineDateRange,
   GiSandsOfTime,
   LuTimerReset,
+  FaTrashAlt,
+  FaEdit,
 } from "../utils/icons";
+import { useTasks } from "../contexts/tasksContext";
 
 export const TaskCard = ({ task }) => {
+  const { updateTask, deleteTask } = useTasks();
+
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
     item: { id: task._id },
@@ -17,6 +22,7 @@ export const TaskCard = ({ task }) => {
   }));
 
   const {
+    _id,
     assignee,
     name,
     priority,
@@ -49,7 +55,7 @@ export const TaskCard = ({ task }) => {
   return (
     <div
       ref={drag}
-      className={`bg-[white] dark:bg-[#1e293b] w-64 p-3 mt-4 shadow-md rounded-md cursor-grab ${
+      className={`bg-[white] dark:bg-[#1e293b] w-[17rem] p-3 mt-4 shadow-md rounded-md cursor-grab ${
         isDragging ? "opacity-25" : "opacity-100"
       } hover:scale-[1.035] transition-transform`}
     >
@@ -88,6 +94,20 @@ export const TaskCard = ({ task }) => {
           <GiSandsOfTime className="text-xl" title="End Date" />
           <span className="text-sm">{formatDate(endDate)}</span>
         </p>
+      </div>
+      <div
+        className="flex items-center justify-between py-3 px-8"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="text-xl text-[#2563eb] hover:text-[#1e40af]">
+          <FaEdit title="Edit Task" />
+        </button>
+        <button
+          className="text-xl text-[#ef4444] hover:text-[#b91c1c]"
+          onClick={() => deleteTask(_id)}
+        >
+          <FaTrashAlt title="Delete Task" />
+        </button>
       </div>
     </div>
   );

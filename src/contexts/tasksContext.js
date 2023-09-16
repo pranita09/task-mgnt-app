@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import { initialState, tasksReducer } from "../reducers/tasksReducer";
 import { actionTypes } from "../utils/constants";
+import toast from "react-hot-toast";
 
 export const TasksContext = createContext();
 
@@ -15,7 +16,7 @@ export const TasksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { GET_TASKS, UPDATE_TASK } = actionTypes;
+  const { GET_TASKS, UPDATE_TASK, DELETE_TASK } = actionTypes;
 
   const getAllTasks = async () => {
     setIsLoading(true);
@@ -48,7 +49,8 @@ export const TasksProvider = ({ children }) => {
       const response = await axios.delete(
         `https://organizely-nodejs-restapi.onrender.com/tasks/${taskId}`
       );
-      console.log(response);
+      dispatch({ type: DELETE_TASK, payload: response.data.data });
+      toast.success("Task deleted successfully!");
     } catch (error) {
       console.error(error);
     }

@@ -1,4 +1,4 @@
-import { FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon, FaTrashAlt, FaEdit } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { GiSandsOfTime } from "react-icons/gi";
 import { BiBarChartSquare } from "react-icons/bi";
@@ -13,6 +13,8 @@ import {
 } from "react-icons/md";
 
 export {
+  FaTrashAlt,
+  FaEdit,
   FaSun,
   FaMoon,
   FiSearch,

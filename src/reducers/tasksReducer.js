@@ -8,6 +8,7 @@ const {
   SET_PRIORITY,
   CLEAR_FILTERS,
   UPDATE_TASK,
+  DELETE_TASK,
 } = actionTypes;
 
 export const initialState = {
@@ -45,6 +46,11 @@ export const tasksReducer = (state, { type, payload }) => {
         tasks: state.tasks.map((task) =>
           task._id === payload._id ? payload : task
         ),
+      };
+    case DELETE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task._id !== payload._id),
       };
     default:
       return state;
