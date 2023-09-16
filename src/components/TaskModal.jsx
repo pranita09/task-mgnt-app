@@ -12,7 +12,7 @@ export const TaskModal = ({ task, setShowTaskModal }) => {
     effortSpent: 1,
     startDate: "",
     endDate: "",
-    priority: "",
+    priority: "Low",
     taskType: "",
   };
   const [taskInputs, setTaskInputs] = useState(task || initialTaskInputs);

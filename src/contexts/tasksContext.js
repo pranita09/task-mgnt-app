@@ -37,6 +37,7 @@ export const TasksProvider = ({ children }) => {
   const addNewTask = async (taskData) => {
     setIsLoading(true);
     try {
+      console.log(taskData);
       const result = await axios.post(
         "https://organizely-nodejs-restapi.onrender.com/tasks",
         taskData
@@ -46,6 +47,7 @@ export const TasksProvider = ({ children }) => {
       navigate("/");
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong.");
     } finally {
       setIsLoading(false);
     }
@@ -60,6 +62,7 @@ export const TasksProvider = ({ children }) => {
       dispatch({ type: UPDATE_TASK, payload: response.data.data });
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -72,6 +75,7 @@ export const TasksProvider = ({ children }) => {
       toast.success("Task deleted successfully!");
     } catch (error) {
       console.error(error);
+      toast.error("Something went wrong.");
     }
   };
 
