@@ -162,6 +162,7 @@ export const TaskModal = ({ task, setShowTaskModal }) => {
             {task ? "Save" : "Add"}
           </button>
           <button
+            type="reset"
             className="py-1 px-6 border rounded"
             onClick={() => {
               setShowTaskModal(false);

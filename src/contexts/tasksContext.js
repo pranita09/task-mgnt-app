@@ -37,7 +37,6 @@ export const TasksProvider = ({ children }) => {
   const addNewTask = async (taskData) => {
     setIsLoading(true);
     try {
-      console.log(taskData);
       const result = await axios.post(
         "https://organizely-nodejs-restapi.onrender.com/tasks",
         taskData
