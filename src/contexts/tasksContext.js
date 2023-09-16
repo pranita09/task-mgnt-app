@@ -7,7 +7,7 @@ import {
 } from "react";
 import axios from "axios";
 import { initialState, tasksReducer } from "../reducers/tasksReducer";
-import { API_KEY, actionTypes } from "../utils/constants";
+import { actionTypes } from "../utils/constants";
 
 export const TasksContext = createContext();
 
@@ -15,14 +15,14 @@ export const TasksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(tasksReducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { GET_TASKS } = actionTypes;
+  const { GET_TASKS, UPDATE_TASK } = actionTypes;
 
-  const getData = async () => {
+  const getAllTasks = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get("https://gcp-mock.apiwiz.io/v1/tasks", {
-        headers: API_KEY,
-      });
+      const response = await axios.get(
+        "https://organizely-nodejs-restapi.onrender.com/tasks"
+      );
       dispatch({ type: GET_TASKS, payload: response.data });
     } catch (error) {
       console.error(error);
@@ -31,8 +31,31 @@ export const TasksProvider = ({ children }) => {
     }
   };
 
+  const updateTask = async (taskId, updatedData) => {
+    try {
+      const response = await axios.post(
+        `https://organizely-nodejs-restapi.onrender.com/tasks/${taskId}`,
+        updatedData
+      );
+      dispatch({ type: UPDATE_TASK, payload: response.data.data });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteTask = async (taskId) => {
+    try {
+      const response = await axios.delete(
+        `https://organizely-nodejs-restapi.onrender.com/tasks/${taskId}`
+      );
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    getData();
+    getAllTasks();
   }, []);
 
   const filteredTasksBySearch = state.searchInput
@@ -95,6 +118,8 @@ export const TasksProvider = ({ children }) => {
       value={{
         state,
         dispatch,
+        updateTask,
+        deleteTask,
         isLoading,
         readyTasks,
         inProgressTasks,

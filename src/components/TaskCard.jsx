@@ -10,7 +10,7 @@ import {
 export const TaskCard = ({ task }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "task",
-    item: { id: task.id },
+    item: { id: task._id },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -24,7 +24,7 @@ export const TaskCard = ({ task }) => {
     endDate,
     status,
     summary,
-    type,
+    taskType,
     effortSpent,
   } = task;
 
@@ -60,7 +60,7 @@ export const TaskCard = ({ task }) => {
           {priority}
         </span>
         <span className="bg-lightBlue text-blue border border-blue px-1.5 py-[0.01rem] rounded">
-          {type}
+          {taskType}
         </span>
       </div>
       <p

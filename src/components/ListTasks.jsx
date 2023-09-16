@@ -1,7 +1,6 @@
 import { useDrop } from "react-dnd";
 import { useTasks } from "../contexts/tasksContext";
 import { Loader, TaskCard } from ".";
-import { actionTypes } from "../utils/constants";
 
 export const ListTasks = () => {
   const { isLoading } = useTasks();
@@ -22,15 +21,19 @@ export const ListTasks = () => {
 };
 
 const Section = ({ status }) => {
-  const { dispatch, readyTasks, inProgressTasks, testingTasks, doneTasks } =
-    useTasks();
-
-  const { DRAG_AND_DROP_TASK } = actionTypes;
+  const {
+    dispatch,
+    updateTask,
+    readyTasks,
+    inProgressTasks,
+    testingTasks,
+    doneTasks,
+  } = useTasks();
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "task",
     drop: (item) => {
-      dispatch({ type: DRAG_AND_DROP_TASK, payload: { id: item.id, status } });
+      updateTask(item.id, { status: status });
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -74,7 +77,7 @@ const Section = ({ status }) => {
         <span className="text-[0.8rem]">({tasksToMap.length})</span>
       </div>
       {tasksToMap.length > 0 ? (
-        tasksToMap?.map((task) => <TaskCard key={task.id} task={task} />)
+        tasksToMap?.map((task) => <TaskCard key={task._id} task={task} />)
       ) : (
         <p className="py-4 pl-4">No tasks found!</p>
       )}
